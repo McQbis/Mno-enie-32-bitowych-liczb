@@ -1,0 +1,224 @@
+org 0
+;Pierwsza liczba
+MOV 04h, #0FEh
+MOV 05h, #014h
+MOV 06h, #0ABh
+MOV 07h, #004h
+;Druga liczba
+MOV 14h, #00Fh
+MOV 15h, #058h
+MOV 16h, #0CDh
+MOV 17h, #0FFh
+;mnozenie dla in10
+;in00xin10
+MOV A, 07h
+MOV B, 17h
+MUL AB
+MOV 27h, A
+MOV 26h, B
+;in01xin10
+MOV A, 06h
+MOV B, 17h
+MUL AB
+MOV 25h, B
+MOV B, 26h
+ADD A, B
+MOV 26h, A
+;in02xin10
+MOV A, 05h
+MOV B, 17h
+MOV 40h, PSW
+MUL AB
+MOV PSW, 40h
+MOV 24h, B
+MOV B, 25h
+ADDC A, B
+MOV 25h, A
+;in03xin10
+MOV A, 04h
+MOV B, 17h
+MOV 40h, PSW
+MUL AB
+MOV PSW, 40h
+MOV 23h, B
+MOV B, 24h
+ADDC A, B
+MOV 24h, A
+;mnozenie dla in11
+;in00xin11
+MOV A, 07h
+MOV B, 16h
+MUL AB
+MOV 36h, A
+MOV 35h, B
+;in01xin11
+MOV A, 06h
+MOV B, 16h
+MUL AB
+MOV 34h, B
+MOV B, 35h
+ADD A, B
+MOV 35h, A
+;in02xin11
+MOV A, 05h
+MOV B, 16h
+MOV 40h, PSW
+MUL AB
+MOV PSW, 40h
+MOV 33h, B
+MOV B, 34h
+ADDC A, B
+MOV 34h, A
+;in03xin11
+MOV A, 04h
+MOV B, 16h
+MOV 40h, PSW
+MUL AB
+MOV PSW, 40h
+MOV 32h, B
+MOV B, 33h
+ADDC A, B
+MOV 33h, A
+;Dodawanie wynikow mnozenia dla pierwszych rejestrow
+MOV A, 26h
+MOV B, 36h
+ADD A, B
+MOV 26h, A
+
+MOV A, 25h
+MOV B, 35h
+ADDC A, B
+MOV 25h, A
+
+MOV A, 24h
+MOV B, 34h
+ADDC A, B
+MOV 24h, A
+
+MOV A, 23h
+MOV B, 33h
+ADDC A, B
+MOV 23h, A
+
+MOV A, 32h
+ADDC A, #000h
+MOV 22h, A
+;mnozenie dla in12
+;in00xin12
+MOV A, 07h
+MOV B, 15h
+MUL AB
+MOV 35h, A
+MOV 34h, B
+;in01xin12
+MOV A, 06h
+MOV B, 15h
+MUL AB
+MOV 33h, B
+MOV B, 34h
+ADD A, B
+MOV 34h, A
+;in02xin12
+MOV A, 05h
+MOV B, 15h
+MOV 40h, PSW
+MUL AB
+MOV PSW, 40h
+MOV 32h, B
+MOV B, 33h
+ADDC A, B
+MOV 33h, A
+;in03xin12
+MOV A, 04h
+MOV B, 15h
+MOV 40h, PSW
+MUL AB
+MOV PSW, 40h
+MOV 31h, B
+MOV B, 32h
+ADDC A, B
+MOV 32h, A
+;Dodawanie wyniku mnozenia in12 do koncowego wyniku
+MOV A, 25h
+MOV B, 35h
+ADD A, B
+MOV 25h, A
+
+MOV A, 24h
+MOV B, 34h
+ADDC A, B
+MOV 24h, A
+
+MOV A, 23h
+MOV B, 33h
+ADDC A, B
+MOV 23h, A
+
+MOV A, 22h
+MOV B, 32h
+ADDC A, B
+MOV 22h, A
+
+MOV A, 31h
+ADDC A, #000h
+MOV 21h, A
+;mnozenie dla in13
+;in00xin13
+MOV A, 07h
+MOV B, 14h
+MUL AB
+MOV 34h, A
+MOV 33h, B
+;in01xin13
+MOV A, 06h
+MOV B, 14h
+MUL AB
+MOV 32h, B
+MOV B, 33h
+ADD A, B
+MOV 33h, A
+;in02xin13
+MOV A, 05h
+MOV B, 14h
+MOV 40h, PSW
+MUL AB
+MOV PSW, 40h
+MOV 31h, B
+MOV B, 32h
+ADDC A, B
+MOV 32h, A
+;in03xin13
+MOV A, 04h
+MOV B, 14h
+MOV 40h, PSW
+MUL AB
+MOV PSW, 40h
+MOV 30h, B
+MOV B, 31h
+ADDC A, B
+MOV 31h, A
+;Dodawanie wyniku mnozenia in13 do koncowego wyniku
+MOV A, 24h
+MOV B, 34h
+ADD A, B
+MOV 24h, A
+
+MOV A, 23h
+MOV B, 33h
+ADDC A, B
+MOV 23h, A
+
+MOV A, 22h
+MOV B, 32h
+ADDC A, B
+MOV 22h, A
+
+MOV A, 21h
+MOV B, 31h
+ADDC A, B
+MOV 21h, A
+
+MOV A, 30h
+ADDC A, #000h
+MOV 20h, A
+END
